@@ -10,12 +10,15 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner = 'androidx.test.runner.AndroidJUnitRunner'
     }
     sourceSets {
         main {
             jniLibs.srcDir 'libs'
         }
     }
+    testOptions{unitTests.returnDefaultValues = true}
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,18 +29,24 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {//
+        exclude group: 'com.android.support', module: 'support-annotations'//
     })
     compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile  'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    testImplementation 'org.json:json:20190722'
+    testImplementation "org.robolectric:robolectric:4.0.2"//
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test:runner:0.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    androidTestImplementation 'com.android.support.test:rules:0.5'
+    //androidTestImplementation 'com.android.support.test:rules:0.5'
+    //androidTestImplementation "com.android.support.test:runner:1.0.2"
+    //androidTestImplementation "com.android.support.test:rules:1.0.2"
+    //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     /*后来加的*/
-    compile 'com.android.support:support-v13:26.1.0'
+    compile'com.android.support:support-v13:26.1.0'
     implementation 'com.android.support:design:26.+'
     configurations.all {
         resolutionStrategy {

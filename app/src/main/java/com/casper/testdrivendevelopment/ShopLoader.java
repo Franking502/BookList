@@ -86,13 +86,13 @@ public void parseJson(String content){
     }
 }
     public void load(final Handler handler, final String url){
-    new Thread(new Runnable()
-    { public void run()
-    { String content = download(url);
-    parseJson(content);
-    handler.sendEmptyMessage(1);
-     }
-     }).start();}
+        new Thread(new Runnable()
+        { public void run()
+        { String content = download(url);
+            parseJson(content);
+            handler.sendEmptyMessage(1);
+        }
+        }).start();}
 
 
 }

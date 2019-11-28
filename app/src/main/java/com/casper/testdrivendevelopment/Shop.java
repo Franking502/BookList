@@ -3,6 +3,8 @@ package com.casper.testdrivendevelopment;
 public class Shop {
     private String name;
     private String memo;
+    private double latitude;
+    private double longitude;
 
     public String getName() {
         return name;
@@ -36,6 +38,4 @@ public class Shop {
         this.longitude = longitude;
     }
 
-    private double latitude;
-    private double longitude;
 }

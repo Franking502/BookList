@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -20,7 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.support.v7.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,13 +59,15 @@ public class BookListMainActivity extends AppCompatActivity {
         ArrayList<Fragment> datas = new ArrayList<>();
         datas.add(new BookListFragment(bookAdapter));
         datas.add(new WebViewFragment());
-        datas.add(new MapFragment());
+        datas.add(new MapViewFragment());
+        datas.add(new GameFragment());
         myPageAdapter.setData(datas);
 
         ArrayList<String> titles = new ArrayList<String>();
         titles.add("图书");
         titles.add("新闻");
         titles.add("卖家");
+        titles.add("游戏");
         myPageAdapter.setTitles(titles);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
@@ -162,7 +163,7 @@ public class BookListMainActivity extends AppCompatActivity {
                 startActivityForResult(intent2, REQUEST_CODE_CHANGE_BOOK);
                 break;
             case CONTEXT_MUNE_ABOUT:
-                Toast.makeText(BookListMainActivity.this,"图书列表 v1.0 code by llc",Toast.LENGTH_LONG).show();
+                Toast.makeText(BookListMainActivity.this,"图书列表 v1.0 code by lfj",Toast.LENGTH_LONG).show();
                 break;
         }
         return super.onContextItemSelected(item);
